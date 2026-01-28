@@ -9,6 +9,10 @@ if [ ! -f .env ]; then
   exit 1
 fi
 
+# Fix permissions
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
 # Install dependencies if needed
 if [ ! -d vendor ]; then
   echo "Installing Composer dependencies..."
