@@ -23,9 +23,20 @@ fi
 
 # Wait for DB
 echo "Waiting for database..."
-until php artisan migrate:status > /dev/null 2>&1; do
+until php -r "
+try {
+  new PDO(
+    'mysql:host=db;dbname=record_db',
+    'root',
+    'root'
+  );
+} catch (Exception \$e) {
+  exit(1);
+}
+"; do
   sleep 2
 done
+
 
 # Run migrations + seed only once
 if [ ! -f storage/.migrated ]; then
