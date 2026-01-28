@@ -2,29 +2,21 @@ version: "3.9"
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: laravel_app
+    build: .
+    container_name: laravel_record_app
     volumes:
       - .:/var/www/html
     ports:
-      - "8000:80"
+      - "5000:80"
     depends_on:
       - db
     env_file:
       - .env
-    command: >
-      sh -c "
-      php artisan key:generate --force &&
-      php artisan migrate:fresh --force &&
-      php artisan db:seed --force &&
-      apache2-foreground
-      "
+    entrypoint: ["/entrypoint.sh"]
 
   db:
     image: mysql:8.0
-    container_name: laravel_db
+    container_name: laravel_record_db
     restart: unless-stopped
     environment:
       MYSQL_DATABASE: ${DB_DATABASE}
