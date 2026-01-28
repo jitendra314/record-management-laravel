@@ -3,22 +3,26 @@ set -e
 
 echo "Starting application setup..."
 
-# Create .env if missing
+# Fail fast if .env is missing
 if [ ! -f .env ]; then
-  cp .env.example .env
+  echo ".env file not found. Please create it from .env.example"
+  exit 1
 fi
 
-# Install dependencies
+# Install dependencies if needed
 if [ ! -d vendor ]; then
-  composer install --no-interaction --prefer-dist
+  echo "Installing Composer dependencies..."
+  composer install --no-interaction --prefer-dist --optimize-autoloader
 fi
 
-# Generate app key
+# Generate APP_KEY if missing
 if ! grep -q "APP_KEY=base64" .env; then
-  php artisan key:generate
+  echo "Generating APP_KEY..."
+  php artisan key:generate --force
 fi
 
-echo "Waiting for database..."
+echo "Waiting for database connection..."
+
 until php -r "
 try {
   new PDO(
@@ -33,12 +37,13 @@ try {
   sleep 2
 done
 
-# Migrate once
+# Run migrations only once
 if [ ! -f storage/.migrated ]; then
+  echo "Running migrations and seeders..."
   php artisan migrate --seed --force
   touch storage/.migrated
 fi
 
-echo "Setup completed"
+echo "Setup completed successfully"
 
 exec apache2-foreground
