@@ -1,4 +1,4 @@
-# Record Management System (Laravel + Docker)
+# Record Management System (Laravel)
 
 ## Overview
 
@@ -100,6 +100,14 @@ Update environment values if needed.
 docker compose up --build
 ```
 
+### One-Command Rebuild (Optional)
+If you want a clean rebuild:
+
+```bash
+docker compose down -v
+docker compose up --build
+```
+
 
 ### Step 5: Access Application
 
@@ -162,3 +170,13 @@ http://localhost:8000
 - Horizontal scaling
 
 ---
+
+
+
+## Conclusion
+### This project demonstrates:
+- Secure Laravel development
+- Clean architecture principles
+- Docker-based deployment
+  
+The structure allows easy scaling, testing, and maintenance while remaining interview-friendly and easy to evaluate.
