@@ -49,8 +49,6 @@ The application demonstrates protection against:
 - **Cross-Site Request Forgery (CSRF)**
     - Laravel CSRF middleware
 
----
-
 ### Architecture & Design
 
 - **Repository Pattern** – Abstracts database access
