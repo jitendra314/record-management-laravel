@@ -9,7 +9,6 @@ The application follows real-world backend development standards including:
 - Secure RESTful design
 - Clean separation of concerns (Service + Repository pattern)
 - Docker-based deployment for consistency
-- Interview-friendly setup and documentation
 
 ---
 
@@ -58,25 +57,6 @@ The application demonstrates protection against:
 - **Service Layer** – Handles business logic
 - **Thin Controllers** – Only request/response handling
 - **Form Request Validation** – Centralized validation
-
----
-
-## Project Structure
-
-```
-app/
- ├── Http/
- │   ├── Controllers/
- │   ├── Requests/
- ├── Services/
- ├── Repositories/
- ├── Models/
-database/
- ├── migrations/
- ├── seeders/
-docker/
- ├── entrypoint.sh
-```
 
 ---
 
@@ -134,6 +114,16 @@ http://localhost:8000
 ---
 
 ## Challenges & Solutions
+
+### Docker + Environment Configuration
+
+- Challenge:
+  Environment variables and app key not being picked up correctly due to bind mounts.
+
+- Solutions:
+
+1. Explicit use of .env with Docker env_file
+2. Clear separation between host and container responsibilities
 
 | Challenge        | Solution                  |
 | ---------------- | ------------------------- |
