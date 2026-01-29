@@ -126,11 +126,16 @@ http://localhost:8000
     1. Explicit use of .env with Docker env_file
     2. Clear separation between host and container responsibilities
 
-| Challenge        | Solution                  |
-| ---------------- | ------------------------- |
-| Environment sync | Docker env isolation      |
-| DB readiness     | DB wait script            |
-| Permissions      | Correct storage ownership |
+### Database Initialization Timing
+
+- Challenge:
+  
+  Application attempted migrations before MySQL was ready.
+
+- Solutions:
+
+    1. Added database readiness check in container entrypoint
+    2. Ensured migrations run only after DB connection is available
 
 ---
 
