@@ -121,7 +121,7 @@ Admin
   pwd : Admin@123
 
 User:
-  emal: user@example.com
+  email: user@example.com
   pwd: User@123
 ```
 
