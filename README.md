@@ -113,7 +113,7 @@ docker compose up --build
 http://localhost:5000
 ```
 
-### Step 5: Demo credntials for Admin
+### Step 5: Demo credntials
 For evaluation purposes, the following user is created via database seeding:
 ```
 Admin
