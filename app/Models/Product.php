@@ -23,7 +23,7 @@ class Product extends Model
     ];
 
     /**
-     * Scope for search (optional, reusable)
+     * Scope for search
      */
     public function scopeSearch($query, ?string $search)
     {

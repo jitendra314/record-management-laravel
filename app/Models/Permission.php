@@ -15,7 +15,7 @@ class Permission extends Model
     {
         return $this->belongsToMany(
             Role::class,
-            'role_permission',      // 👈 explicit pivot table
+            'role_permission',
             'permission_id',
             'role_id'
         );

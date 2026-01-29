@@ -5,20 +5,13 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProductController;
 
-/*
-|--------------------------------------------------------------------------
-| Redirect Root
-|--------------------------------------------------------------------------
-*/
+
 Route::get('/', function () {
     return redirect()->route('dashboard');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Guest Routes (Authentication)
-|--------------------------------------------------------------------------
-*/
+/*  Guest Routes (Authentication) */
+
 Route::middleware('guest')->group(function () {
 
     Route::get('/login', [AuthController::class, 'showLogin'])
@@ -28,23 +21,14 @@ Route::middleware('guest')->group(function () {
         ->name('login.submit')->middleware('throttle:5,1');
 });
 
-/*
-|--------------------------------------------------------------------------
-| Authenticated Routes
-|--------------------------------------------------------------------------
-*/
+/*  Authenticated Routes */
+
 Route::middleware('auth')->group(function () {
 
     Route::resource('/roles', RoleController::class)->except('show');
-    /**
-     * Logout (POST for CSRF protection)
-     */
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
 
-    /**
-     * Dashboard
-     */
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
@@ -52,9 +36,7 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/products/bulk-delete', [ProductController::class, 'bulkDelete'])
     ->name('products.bulk-delete');
-    /**
-     * Product Management (Policy Protected)
-     */
+
     Route::resource('products', ProductController::class)
         ->except(['show']);
 
