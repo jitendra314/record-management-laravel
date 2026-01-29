@@ -60,7 +60,7 @@ The application demonstrates protection against:
 
 ---
 
-## Deployment (Docker)
+## Deployment Strategy
 
 ### Prerequisites
 
@@ -68,7 +68,7 @@ The application demonstrates protection against:
 - Docker Compose
 - Git
 
----
+
 
 ### Step 1: Clone Repository
 
@@ -77,7 +77,6 @@ git clone <repository-url>
 cd record-management-laravel
 ```
 
----
 
 ### Step 2: Environment Setup
 
@@ -87,7 +86,6 @@ cp .env.example .env
 
 Update environment values if needed.
 
----
 
 ### Step 3: Generate App Key
 
@@ -95,7 +93,6 @@ Update environment values if needed.
  php artisan key:generate
 ```
 
----
 
 ### Step 4: Build & Run Containers
 
@@ -103,7 +100,6 @@ Update environment values if needed.
 docker compose up --build
 ```
 
----
 
 ### Step 5: Access Application
 
