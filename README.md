@@ -123,8 +123,8 @@ http://localhost:8000
 
 - Solutions:
 
-      1. Explicit use of .env with Docker env_file
-      2. Clear separation between host and container responsibilities
+    1. Explicit use of .env with Docker env_file
+    2. Clear separation between host and container responsibilities
 
 | Challenge        | Solution                  |
 | ---------------- | ------------------------- |
