@@ -113,6 +113,18 @@ docker compose up --build
 http://localhost:5000
 ```
 
+### Step 5: Demo credntials for Admin
+For evaluation purposes, the following user is created via database seeding:
+```
+Admin
+  email: admin@example.com
+  pwd : Admin@123
+
+User:
+  emal: user@example.com
+  pwd: User@123
+```
+
 ---
 
 ## Challenges & Solutions
