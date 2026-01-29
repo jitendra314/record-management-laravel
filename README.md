@@ -112,7 +112,7 @@ docker compose up --build
 ### Step 5: Access Application
 
 ```
-http://localhost:8000
+http://localhost:5000
 ```
 
 ---
@@ -154,7 +154,7 @@ http://localhost:8000
 ### Performance
 
 - Pagination
-- Optimized queries
+- Optimized queries (Database indexes were added on searchable fields (e.g., title, price, avaiable_at) to improve query performance.)
 - Config caching ready
 
 ---
