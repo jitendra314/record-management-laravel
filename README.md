@@ -118,6 +118,7 @@ http://localhost:8000
 ### Docker + Environment Configuration
 
 - Challenge:
+  
   Environment variables and app key not being picked up correctly due to bind mounts.
 
 - Solutions:
