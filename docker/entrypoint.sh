@@ -44,7 +44,7 @@ done
 # Run migrations only once
 if [ ! -f storage/.migrated ]; then
   echo "Running migrations and seeders..."
-  php artisan migrate --seed --force
+  php artisan migrate:fresh --seed --force
   touch storage/.migrated
 fi
 
