@@ -117,12 +117,12 @@ http://localhost:5000
 For evaluation purposes, the following user is created via database seeding:
 ```
 Admin
-  email: admin@example.com
-  pwd : Admin@123
+  Email: admin@example.com
+  Password : Admin@123
 
 User:
-  email: user@example.com
-  pwd: User@123
+  Email: user@example.com
+  Password: User@123
 ```
 
 ---
